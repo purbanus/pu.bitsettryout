@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd"
+>
+    <info organisation="pu.porna" module="pu.porna"/>
+    <dependencies>
+    	<!-- Voor Spring interdependencies zie 
+    		 http://www.ogrigas.eu/spring/2009/12/diagram-of-spring-3-0-module-dependencies
+    		 http://stackoverflow.com/questions/4677601/spring-3-0-5-library-jars
+    		 http://spring.io/blog/2009/12/02/obtaining-spring-3-artifacts-with-maven/
+    		 Die laatste link is de beste. Hier ontbreekt echter
+    		 spring-aspects: AspectJ integration; rarely needed
+    		 spring-instrument, spring-instrument.tomcat: load-time weaving
+    	-->
+
+		<dependency org="org.springframework" name="spring-core" rev="4.2.4.RELEASE">
+			<exclude org="commons-logging" /><!-- spring-core is de enige die een dependency met commons-logging heeft -->
+		</dependency>
+		<dependency org="org.springframework" name="spring-beans" rev="4.2.4.RELEASE"/>
+		<dependency org="org.springframework" name="spring-context" rev="4.2.4.RELEASE"/>
+		<dependency org="org.springframework" name="spring-context-support" rev="4.2.4.RELEASE" />
+		<dependency org="org.springframework" name="spring-expression" rev="4.2.4.RELEASE"/>
+		<dependency org="org.springframework" name="spring-aop" rev="4.2.4.RELEASE"/>
+		<dependency org="org.springframework" name="spring-jdbc" rev="4.2.4.RELEASE"/>
+		<dependency org="org.springframework" name="spring-tx" rev="4.2.4.RELEASE"/>
+		<dependency org="org.springframework" name="spring-oxm" rev="4.2.4.RELEASE"/>
+
+		<dependency org="org.springframework" name="spring-web" rev="4.2.4.RELEASE"/>
+		<dependency org="org.springframework" name="spring-webmvc" rev="4.2.4.RELEASE"/>
+		<dependency org="org.springframework" name="spring-test" rev="4.2.4.RELEASE"/>
+
+		<!--
+		<dependency org="org.springframework" name="spring-aspects" rev="4.2.4.RELEASE"/>
+		<dependency org="org.springframework" name="spring-jms" rev="4.2.4.RELEASE"/>
+		<dependency org="org.springframework" name="spring-orm" rev="4.2.4.RELEASE"/>
+		-->
+		
+		<dependency org="org.springframework.ws" name="spring-ws-core" rev="2.4.1.RELEASE"/>
+		<!-- @@NOG Is dit nodig?
+		<dependency org="org.springframework.ws" name="spring-ws" rev="2.4.1.RELEASE">
+		    <artifact name="spring-ws" type="pom" ext="pom"/>
+		</dependency>
+		-->
+		<dependency org="org.springframework.ws" name="spring-xml" rev="2.4.1.RELEASE"/>
+
+		<dependency org="com.prowidesoftware" name="pw-swift-core" rev="SRU2015-7.7"/>
+		
+		<dependency org="aopalliance" name="aopalliance" rev="1.0"/>
+		<dependency org="org.aspectj" name="aspectjrt" rev="1.8.9"/>
+        <dependency org="cglib" name="cglib-nodep" rev="3.2.1"/>
+        <dependency org="javax.inject" name="javax.inject" rev="1" />
+  		
+        <dependency org="com.mchange" name="c3p0" rev="0.9.5-pre8"/>
+        <dependency org="com.mchange" name="mchange-commons-java" rev="0.2.7"/>
+		<dependency org="org.mybatis" name="mybatis" rev="3.3.0"/>
+		<dependency org="org.mybatis" name="mybatis-spring" rev="1.2.3"/>
+		<dependency org="org.hsqldb" name="hsqldb" rev="2.3.3"/>
+		<dependency org="org.postgresql" name="postgresql" rev="42.2.5"/>
+        
+        <dependency org="javax.servlet" name="jstl" rev="1.2" />
+		<dependency org="org.apache.tiles" name="tiles-servlet" rev="3.0.5"/>
+		<dependency org="org.apache.tiles" name="tiles-jsp" rev="3.0.5"/>
+		<dependency org="org.apache.tiles" name="tiles-api" rev="3.0.5"/>
+		<dependency org="org.apache.tiles" name="tiles-core" rev="3.0.5"/>
+		<dependency org="org.freemarker" name="freemarker" rev="2.3.26-incubating"/>
+				
+		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.21" />
+		<dependency org="org.slf4j" name="jcl-over-slf4j" rev="1.7.21" />
+		<dependency org="org.slf4j" name="slf4j-log4j12" rev="1.7.21" />
+		<dependency org="log4j" name="log4j" rev="1.2.17" />
+		<!--
+		<dependency org="org.apache.logging.log4j" name="log4j-1.2-api" rev="2.0.2" />
+		<dependency org="org.apache.logging.log4j" name="log4j-api" rev="2.0.2" />
+		<dependency org="org.apache.logging.log4j" name="log4j-core" rev="2.0.2" />
+		-->
+		<!-- Deze hebben we toch niet meer nodig? -->
+		<dependency org="commons-logging" name="commons-logging" rev="1.2"/>
+		
+		<dependency org="junit-addons" name="junit-addons" rev="1.4"/>
+		<dependency org="org.easymock" name="easymock" rev="3.4"/>
+		<dependency org="org.assertj" name="assertj-core" rev="3.22.0"/>
+		<dependency org="org.openjdk.jol" name="jol-core" rev="0.16"/>
+
+		<dependency org="com.google.code.findbugs" name="findbugs" rev="3.0.1" /><!-- Zodat je FB-fouten kunt onderdrukken -->
+		
+		<dependency org="javax.activation" name="activation" rev="1.1.1"/>
+		<dependency org="javax.mail" name="mail" rev="1.5.0-b01"/>
+		
+        <dependency org="commons-beanutils" name="commons-beanutils" rev="1.9.3"/>
+        <dependency org="commons-codec" name="commons-codec" rev="1.10" />
+		<dependency org="commons-collections" name="commons-collections" rev="3.2.2"/>
+		<dependency org="org.apache.commons" name="commons-csv" rev="1.5"/>
+		<dependency org="commons-digester" name="commons-digester" rev="2.1"/>
+		<dependency org="org.apache.commons" name="commons-digester3" rev="3.2"/>
+		<dependency org="commons-fileupload" name="commons-fileupload" rev="1.3.3"/>
+		<dependency org="commons-io" name="commons-io" rev="2.5"/>
+		<dependency org="commons-lang" name="commons-lang" rev="2.6"/>
+		<dependency org="org.apache.commons" name="commons-lang3" rev="3.6"/>
+		
+		<dependency org="org.mozilla" name="rhino" rev="1.7.7.1"/>
+		<dependency org="org.apache.pdfbox" name="pdfbox" rev="2.0.0"/>
+		<dependency org="org.bouncycastle" name="bcprov-jdk15on" rev="1.54"/>
+		<dependency org="org.bouncycastle" name="bcmail-jdk15on" rev="1.54"/>
+		<dependency org="org.bouncycastle" name="bcpkix-jdk15on" rev="1.54"/>
+		
+    </dependencies>
+</ivy-module>
